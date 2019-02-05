@@ -1,0 +1,51 @@
+.btn {
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+.btn-info {
+    background-color: #11cdef;
+    border: 1px solid #11cdef;
+}
+
+.btn-warning {
+    background-color: #fb6340;
+    border: 1px solid #fb6340;
+}
+
+.btn-primary, .btn-success, .btn-info, .btn-warning, .btn-danger, .btn-inverse, .btn-purple, .btn-pink, .btn-twitter, .btn-facebook, .btn-linkedin, .btn-google, .btn-dribbble, .btn-instagram {
+    color: #fff;
+}
+
+.btn {
+    height: 30px;
+    font-size: 15px;
+    font-weight: 800;
+    line-height: 1.5;
+    padding: 6px 10px;
+    text-align: center;
+    display: inline-block;
+    border-radius: .25rem;
+    vertical-align: middle;
+    transition: 0.3s ease-in-out;
+    user-select: none;
+    -moz-transition: 0.3s ease-in-out;
+    -o-transition: 0.3s ease-in-out;
+    -webkit-transition: 0.3s ease-in-out;
+}
+
+.table-custom-btn{
+    float: right;
+    margin-top: -4%;
+}
+
+.ik{
+    margin-right: 3px;
+}
+
+@media (min-height: 446px) and (max-height: 640px){
+    .table-custom-btn{
+        float: right;
+        margin-top: -5%;
+    }
+}

@@ -1,0 +1,38 @@
+Modulo de Usuarios: - Admin: Admin/Cajero/Cliente
+ - Registrar Usuarios
+ - Registro de Cliente
+ - Registrar menu
+ - Facturar
+ - Asignar mesa
+
+cliente:
+    - ver menu
+    - selecciona comida
+    - realiza pedido
+    - historial de pedidos
+
+Contador de preparación y entrega
+
+Mudulo de Factura
+- Lista de pedidos por mesa
+- Facturacion de monto
+- Set status de mesa
+
+
+Entidades: 
+
+- Users (email, password, role['admin', 'cajero', 'cliente']->default('cliente'))
+- Mesas (nro, status['disponible', 'ocupada])
+- Cliente_Mesa (cliente_id, mesa_id)
+- Clientes (user_id, dni, nombre, apellido, telefono, direccion)
+- Platos (codigo, nombre, descripcion, precio, tiempo_preparacion, status['disponible', 'agotado'], cantidad[null], categoria_id)
+- Categorias (nombre)
+- Pedidos (nro_orden, mesa_id, cliente_id, plato_id, cantidad, status['cancelado', 'en_espera', 'en_preparacion', 'listo', 'entregado', 'pagado'])
+- Factura_Pedido (factura_id, pedido_id)
+- Facturas (codigo, cliente_id, fecha(datetime), subtotal, total)
+- Configuraciones (iva)
+
+
+Entidades:
+
+- Users (name, email, password)

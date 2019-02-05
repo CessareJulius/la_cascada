@@ -1,0 +1,281 @@
+*{
+	margin:0px;
+	padding:0px;
+	font-family: Helvetica Neue; 
+}
+body{
+	background-image: url(../imagenes/fondo-web.jpg);
+	background-repeat: no-repeat;
+	height: 100vh;
+    position: relative;
+    width: 100%;
+    background-size: cover;
+}
+div.h1{
+	position: relative;
+	width: 60%;
+	height: 100px;
+	left: 20%; /*(100%-60%)/2*/
+	top: 100px;
+	color: black;
+}
+
+header{
+	margin: auto;
+	width:auto;
+	height: 23%;
+    font-size: 1rem;
+}
+
+div.contenedor{
+	width: 10%;
+	height: 101px;
+	float:left;
+	-webkit-transition: height .4s;
+}
+
+div#uno{
+	background-color: rgb(208,101,3);
+}
+
+div#dos{
+	background-color: rgb(233,147,26);
+}
+
+div#tres{
+	background-color: rgb(22,145,190);
+}
+
+div#cuatro{
+	background-color: rgb(22,107,162);
+}
+
+div#cinco{
+	background-color: rgb(27,54,71);
+}
+
+div#seis{
+	background-color: rgb(36, 231, 167  );
+}
+div#siete{
+	background-color: rgb(28, 98, 75  );
+}
+div#ocho{
+	background-color: rgb(28, 102, 111);
+}
+div#nueve{
+	background-color: rgb(20, 72, 79);
+}
+div#diez{
+	background-color: #FFFFFF;
+}
+img.icon{
+	display: block;
+	margin:auto;
+	background-color: rgba(255,255,255,.15);
+	width:20%;
+	padding:20px;
+	-webkit-border-radius: 50%;
+	-webkit-box-shadow: 0px 0px 0px 30px rgba(255,255,255,0);
+	-webkit-transition:box-shadow .4s;
+}
+
+img.icon:active{
+	border-width: 4px;
+    border-style: solid;
+	border-color: aqua;
+	width: 18%;
+}
+
+img.active{
+	border-width: 4px;
+    border-style: solid;
+	border-color: aqua;
+	width: 18%;
+}
+
+p.texto{
+	font-weight: bold;
+	font-size: 90%;
+	color:black;
+	text-align: center;
+	margin-top: 3%;
+	padding-top:0px;
+	opacity: .6;
+	-webkit-transition: padding-top .4s;
+
+}
+
+table.tabla{
+width: 100%;
+border-collapse: collapse;
+border:solid 1px black;
+}
+
+
+table.tabla td, table.tabla th{
+padding: 5px;
+border:solid 1px black;
+}
+
+.contenedor > a{
+	color:black;
+	text-decoration: none
+}
+div.contenedor:hover{
+	height:150px;
+}
+
+div.contenedor:hover p.texto{
+	padding-top: 30px;
+	opacity: 1;
+}
+
+form.form{
+	padding: 10px;
+    background: rgba(255,255,255,0.7);
+    width: 400px;
+    border-radius: 5px;margin:0 auto;
+        box-shadow: 1px 1px 6px black;
+}
+form.form>h3, .form_table>h3{
+	text-align: center;
+    padding-bottom: 10px;
+    border-bottom: solid lightgray 3px;
+    margin-bottom: 10px;
+    font-family: arial;
+}
+
+table.table{
+	width: 100%;
+    border-collapse: collapse;
+    border: solid 1px black;
+}
+
+table.table td, table.table th {
+    padding: 5px;
+    border: solid 1px black;
+}
+
+.reportes_btn{
+	padding: 5px;
+	font-size: 14px;
+	font-family: arial;
+}
+
+.form_table{
+    padding: 10px;
+    background: rgba(255,255,255,0.7);
+    width: 60%;
+    border-radius: 5px;
+    margin: 0 auto;
+    box-shadow: 1px 1px 6px black;
+}
+
+div.contenedor:hover img.icon{
+	-webkit-box-shadow:0px 0px 0px 0px rgba(255,255,255,.6);
+}
+
+
+/* CSS by CessareJulius */
+
+.content-wrapper{
+	width: 60%;
+	margin:0 auto;
+}
+
+.main-content{
+	background: rgba(255,255,255,0.7);
+	padding: 10px;
+	border-radius: 5px;
+	box-shadow: 1px 1px 6px #000000b0;
+}
+
+.content-header{
+	padding-bottom: 10px;
+	border-bottom: solid lightgray 3px;
+	margin-bottom: 10px;
+}
+
+.content-header > .title{
+	text-align: center;
+	margin-bottom: 0;
+}
+
+div.row > .col-md-7{
+	position: absolute;
+}
+
+#alt-pg-dt_wrapper > .row:first-child > .col-md-6:last-child{
+	position: absolute;
+}
+
+.form-group > .form-control{
+	width: 88%;
+}
+
+.row > .ajust{
+	max-width: 44%;
+}
+
+div.errors{
+	background-color: #f34249d9;
+	color: white;
+	border-radius: 3px;
+	text-align:left;
+	padding-top: 1%;
+	padding-bottom: 1%;
+	margin-bottom: 4%;
+}
+
+.card{
+	border-color: #ffff;
+    position: relative;
+    width: 100%;
+    border: none;
+	margin-bottom: 30px;
+	box-shadow: 0 6px 0 0 rgba(0,0,0,0.01), 0 15px 32px 0 rgba(0,0,0,0.06);
+	transition: all 0.5s ease-in-out;
+	-webkit-border-radius: 4px;
+
+
+	display: flex;
+	flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+}
+
+.col {
+    max-width: 50%;
+}
+
+.text-blue {
+	color: #19B5FE !important;
+}
+
+.fz-17 {
+    font-size: 17px !important;
+}
+
+.fw-700 {
+    font-weight: 700;
+}
+
+.img-menu-item{
+	background-image: url(../imagenes/fondo-web.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 28%;
+    height: 12vh;
+    position: relative;
+}
+}
+
+@media (min-width: 768px){
+	.col-md-6 {
+		max-width: 58%;
+	}
+}
+
