@@ -24,6 +24,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('mesas', 'MesasController');
     Route::resource('users', 'UsersController');
     Route::resource('menus', 'MenusController');
+    Route::resource('pedidos', 'PedidosController');
     Route::get('clients/verify/{dni}', 'ClientesController@dni_verify');
     Route::post('clients/assoc/mesa', 'ClientesController@assoc_client_board')->name('assoc.client');
 

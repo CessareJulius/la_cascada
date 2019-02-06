@@ -19,7 +19,6 @@ const menus = new Vue({
             }
         },
         cantidad_item: '',
-
     },
     methods: {
         alert_loader(options){

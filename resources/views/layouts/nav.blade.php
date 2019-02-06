@@ -42,7 +42,15 @@
             </a>
         </div>
 
-        @if(Auth::user()->role == 'admin')
+        <div class="contenedor" id="seis">
+            <a href="{{ route('pedidos.index') }}">
+                <img class="icon {{ Request::is(['pedidos', 'pedidos/*']) ? 'active' : '' }}"
+                src="{{ asset('imagenes/al.png') }}">
+                <p class="texto">Pedidos</p>
+            </a>
+        </div>
+
+        @if(Auth::user()->role == 'admin' || Auth::user()->role == 'cajero')
         <div class="contenedor" id="ocho">
             <a href="">
                 <img class="icon" src="{{ asset('imagenes/reclamar_facturas_01.png') }}">

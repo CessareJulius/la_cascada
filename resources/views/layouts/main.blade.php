@@ -22,10 +22,10 @@
 		@if(Auth::user()->role == 'admin')
 			<style>
 				header{
-					padding-left: 14%;
+					padding-left: 9%;
 				}
 				.total-content{
-					width: 102%;
+					width: 100%;
 				}
 			</style>
 		@elseif(Auth::user()->role == 'cliente')
