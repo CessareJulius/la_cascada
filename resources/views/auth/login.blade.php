@@ -13,13 +13,13 @@
 
         <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,600,700,800" rel="stylesheet">
         
-        <link rel="stylesheet" href="{{ asset('themekit/node_modules/bootstrap/dist/css/bootstrap.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
         <link rel="stylesheet" href="{{ asset('css/fontawesome-free/css/all.min.css') }}">
         <link rel="stylesheet" href="{{ asset('css/ionicons/dist/css/ionicons.min.css') }}">
 		<link rel="stylesheet" href="{{ asset('css/icon-kit/dist/css/iconkit.min.css') }}">
-        <link rel="stylesheet" href="{{ asset('themekit/node_modules/perfect-scrollbar/css/perfect-scrollbar.css') }}">
-        <link rel="stylesheet" href="{{ asset('themekit/dist/css/theme.min.css') }}">
-        <script src="{{ asset('themekit/src/js/vendor/modernizr-2.8.3.min.js') }}"></script>
+        <link rel="stylesheet" href="{{ asset('css/perfect-scrollbar.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/theme.min.css') }}">
+        <script src="{{ asset('js/modernizr-2.8.3.min.js') }}"></script>
 
         <style>
             .custom-login{
@@ -108,12 +108,12 @@
             </div>
         </div>
         
-        <script src="{{ asset('themekit/src/js/vendor/jquery-3.3.1.min.js') }}"></script>
-        <script src="{{ asset('themekit/node_modules/popper.js/dist/umd/popper.min.js') }}"></script>
-        <script src="{{ asset('themekit/node_modules/bootstrap/dist/js/bootstrap.min.js') }}"></script>
-        <script src="{{ asset('themekit/node_modules/perfect-scrollbar/dist/perfect-scrollbar.min.js') }}"></script>
-        <script src="{{ asset('themekit/node_modules/screenfull/dist/screenfull.js') }}"></script>
-        <script src="{{ asset('themekit/dist/js/theme.js') }}"></script>
+        <script src="{{ asset('js/jquery-3.3.1.min.js') }}"></script>
+        <script src="{{ asset('js/popper.min.js') }}"></script>
+        <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+        <script src="{{ asset('js/perfect-scrollbar.min.js') }}"></script>
+        <script src="{{ asset('js/screenfull.js') }}"></script>
+        <script src="{{ asset('js/theme.js') }}"></script>
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
         <script>
             (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
