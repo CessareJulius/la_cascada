@@ -65,7 +65,7 @@ class MenusController extends Controller
                 'nro_orden'     => 'P'.str_random(2).date('Y-m-d'), 
                 'mesa_id'       => Auth::user()->cliente->mesas[0]->id,
                 'cliente_id'    => Auth::user()->cliente->id,
-                'plato_id'      => $request->item['id'],
+                'menu_id'      => $request->item['id'],
                 'cantidad'      => $request->cantidad,
             ]);
         }
