@@ -50,15 +50,46 @@ class FacturasController extends Controller
         $mesa_obj   = $data['mesa'];
         $cliente    = $data['cliente'];
         $pedidos    = $data['pedidos'];
-        $iva        = Configuracion::first();
+        $conf        = Configuracion::first();
 
-        $invoice_code = '';
+        $invoice_code = 'F'.random_int(100, 1000).strtoupper(str_random('1').random_int(100, 1000));
         $factura = Factura::orderBy('id', 'desc')->first();
         if($factura != null){
             $factura_id = $factura->id;
         }
         
-        //dd(2);
-        return view('facturas.create', compact('mesa_obj', 'cliente', 'pedidos', 'iva', 'dni', 'mesa','factura_id', 'invoice_code'));
+        //dd($invoice_code);
+        return view('facturas.create', compact('mesa_obj', 'cliente', 'pedidos', 'conf', 'dni', 'mesa','factura_id', 'invoice_code'));
+    }
+
+    public function store(Request $request){
+        $data = $this->verify_client($request->dni, $request->mesa)->original;
+        $mesa_obj   = $data['mesa'];
+        $cliente    = $data['cliente'];
+        $pedidos    = $data['pedidos'];
+
+        $factura = Factura::create([
+            'codigo'        => $request->codigo,
+            'cliente_id'    => $cliente->id,
+            'fecha'         => date('Y-m-d h:m'),
+            'subtotal'      => $request->subtotal,
+            'total'         => $request->total 
+        ]);
+
+        $factura->pedidos()->attach($pedidos);
+
+        foreach ($pedidos as $pedido) {
+            $pedido->status = 'pagado';
+            $pedido->update;
+        }
+
+        $cliente->mesas()->detach($mesa_obj);
+
+        $mesa_obj->status = 'disponible';
+        $mesa_obj->update();
+
+        //dd($factura);
+
+        return redirect()->route('facturas.index')->with('success', 'Factura y pago creados con exito!.');
     }
 }

@@ -14,6 +14,8 @@
 @endpush
 
 @section('content')
+<form action="{{ route('facturas.store') }}" method="POST">
+    @csrf
     <div class="main-content">
         <div class="card" style="margin-bottom:0;">
             <div class="card-header">
@@ -32,6 +34,8 @@
                     <div class="col-sm-4 invoice-col">
                         Para:
                         <address>
+                            <input type="hidden" name="dni" value="{{ $dni }}">
+                            <input type="hidden" name="mesa" value="{{ $mesa }}">
                             <strong>{{ $cliente->nombre }} {{ $cliente->apellido }}</strong>
                             <br>
                             @if($cliente->direccion != null){{ $cliente->direccion }}<br>@endif
@@ -43,6 +47,7 @@
                         <b>Factura #0{{ $factura_id }}</b><br>
                         <br>
                         <b>Nro Orden:</b> {{ $invoice_code }}
+                        <input type="hidden" name="codigo" value="{{ $invoice_code }}">
                     </div>
                 </div>
                 <div class="row">
@@ -75,24 +80,28 @@
                 </div>
                 <div class="row">
                     <div class="col-6">
-                        <p class="lead">Amount Due 10/11/2018</p>
+                        <p class="lead">Cuenta a pagar:</p>
                         <div class="table-responsive">
                             <table class="table">
                                 <tbody><tr>
                                     <th style="width:50%">Subtotal:</th>
-                                    <td>$250.30</td>
+                                    @php
+                                        $sub = 0;
+                                        foreach ($pedidos as $pedido):
+                                            $sub += $pedido->cantidad * intval($pedido->menu->precio);
+                                        endforeach;
+                                    @endphp
+                                    <td>${{ $sub }}</td>
+                                    <input type="hidden" name="subtotal" value="{{ $sub }}">
                                 </tr>
                                 <tr>
-                                    <th>Tax (9.3%)</th>
-                                    <td>$10.34</td>
-                                </tr>
-                                <tr>
-                                    <th>Shipping:</th>
-                                    <td>$5.80</td>
+                                    <th>Iva ({{ $conf->iva }}%)</th>
+                                    <td>${{ $sum_iva = ($sub * $conf->iva)/100 }}</td>
                                 </tr>
                                 <tr>
                                     <th>Total:</th>
-                                    <td>$265.24</td>
+                                    <td>${{ $total = $sub + $sum_iva }}</td>
+                                    <input type="hidden" name="total" value="{{ $total }}">
                                 </tr>
                             </tbody></table>
                         </div>
@@ -100,12 +109,13 @@
                 </div>
                 <div class="row no-print">
                     <div class="col-12">
-                        <button type="button" class="btn btn-success pull-right"><i class="fa fa-credit-card"></i> Submit Payment</button>
-                        <button type="button" class="btn btn-primary pull-right" style="margin-right: 5px;"><i class="fa fa-download"></i> Generate PDF</button>
+                        <button type="submit" class="btn btn-success pull-right">
+                            <i class="fa fa-credit-card"></i> Pagar
+                        </button>
                     </div>
                 </div>
             </div>
         </div>
-
     </div>
+</form>
 @endsection

@@ -125,7 +125,6 @@
                                     value: true,
                                 },
                             },
-                            dangerMode: true,
 				            closeOnClickOutside: false,
 				            closeOnEsc: false,
 				            timer: 5000,
