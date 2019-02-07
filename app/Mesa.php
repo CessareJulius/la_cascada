@@ -11,4 +11,8 @@ class Mesa extends Model
     public function clientes(){
         return  $this->belongsToMany(Cliente::class);
     }
+
+    public function pedidos(){
+        return $this->hasMany(Pedido::class);
+    }
 }

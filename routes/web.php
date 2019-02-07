@@ -25,6 +25,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('users', 'UsersController');
     Route::resource('menus', 'MenusController');
     Route::resource('pedidos', 'PedidosController');
+    Route::resource('facturas', 'FacturasController');
+
     Route::get('clients/verify/{dni}', 'ClientesController@dni_verify');
     Route::post('clients/assoc/mesa', 'ClientesController@assoc_client_board')->name('assoc.client');
 
@@ -32,4 +34,6 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('/categoria/store', 'MenusController@categoria_store')->name('menu.categoria.store');
     Route::post('menus/new_item', 'MenusController@store')->name('menu.item.store');
     Route::post('/save/pedido', 'MenusController@save_pedido');
+    Route::get('/verify/client/facturar/{dni}/{mesa}', 'FacturasController@verify_client');
+    Route::post('/crear/factura', 'FacturasController@crear')->name('facturas.crear');
 });

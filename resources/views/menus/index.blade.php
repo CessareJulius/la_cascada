@@ -107,7 +107,7 @@
                                 <div class="row" style="flex-wrap:nowrap">
                                     <div class="col-md-6 ajust">
                                         <div class="form-group">
-                                            <input type="text"
+                                            <input type="number"
                                                     class="form-control{{ $errors->has('precio') ? ' is-invalid' : '' }}"
                                                     name="precio"
                                                     value="{{ old('precio') }}"

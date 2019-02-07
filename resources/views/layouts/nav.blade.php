@@ -52,8 +52,9 @@
 
         @if(Auth::user()->role == 'admin' || Auth::user()->role == 'cajero')
         <div class="contenedor" id="ocho">
-            <a href="">
-                <img class="icon" src="{{ asset('imagenes/reclamar_facturas_01.png') }}">
+            <a href="{{ route('facturas.index') }}">
+                <img class="icon {{ Request::is(['facturas', 'facturas/*']) ? 'active' : '' }}"
+                src="{{ asset('imagenes/reclamar_facturas_01.png') }}">
                 <p class="texto">Facturar</p>
             </a>
         </div>
