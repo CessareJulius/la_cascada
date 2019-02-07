@@ -60,18 +60,25 @@ class MenusController extends Controller
     }
 
     public function save_pedido(Request $request){
-        if(Auth::user()->cliente != null){
-            $pedido = Pedido::create([
-                'nro_orden'     => 'P'.str_random(2).date('Y-m-d'), 
-                'mesa_id'       => Auth::user()->cliente->mesas[0]->id,
-                'cliente_id'    => Auth::user()->cliente->id,
-                'menu_id'      => $request->item['id'],
-                'cantidad'      => $request->cantidad,
-            ]);
+        if(count(Auth::user()->cliente->mesas) == 0){
+            return response()->json([
+                'message' => 'Usted no tiene una mesa asignada',
+            ], 500);
+        } else {
+            if(Auth::user()->cliente != null){
+                $pedido = Pedido::create([
+                    'nro_orden'     => random_int(1000, 100000), 
+                    'mesa_id'       => Auth::user()->cliente->mesas[0]->id,
+                    'cliente_id'    => Auth::user()->cliente->id,
+                    'menu_id'       => $request->item['id'],
+                    'cantidad'      => $request->cantidad,
+                    'status'        => 'en_espera',
+                ]);
+            }
+    
+            return response()->json([
+                'message' => 'success'
+            ], 200);
         }
-
-        return response()->json([
-            'message' => 'success'
-        ], 200);
     }
 }

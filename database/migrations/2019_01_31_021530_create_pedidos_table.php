@@ -20,7 +20,7 @@ class CreatePedidosTable extends Migration
             $table->integer('cliente_id')->unsigned();
             $table->integer('menu_id')->unsigned();
             $table->integer('cantidad');
-            $table->enum('status', ['cancelado', 'en_espera', 'en_preparacion', 'listo', 'entregado', 'pagado']);
+            $table->enum('status', ['cancelado', 'en_espera', 'en_preparacion', 'listo', 'entregado', 'pagado'])->default('en_espera');
             $table->timestamps();
 
             //Relations

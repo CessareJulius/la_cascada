@@ -93,6 +93,8 @@ class ClientesController extends Controller
         $cliente = Cliente::where('dni', $request->dni)->first();
         $mesa = Mesa::findOrFail($request->mesa);
         $cliente->mesas()->attach($mesa);
+        $mesa->status = 'ocupada';
+        $mesa->update();
         return redirect()->route('clientes.index')->with('success', 'Cliente agregado a la mesa #'.$mesa->nro);
     }
 

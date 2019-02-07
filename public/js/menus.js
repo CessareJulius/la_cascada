@@ -71,12 +71,17 @@ const menus = new Vue({
         save_pedido(){
             let url = this.route + "/save/pedido"
             axios.post(url, {item: this.item, cantidad: this.cantidad_item}).then(response => {
-                console.log(response.data)
+                /* console.log(response.status)
+                console.log(response.data) */
                 toastr.success('Pedido Realizado con exito!', 'Excelente!.')
                 $("#modal_new_pedido").modal('hide')
                 this.pre_load_menu()
             }).catch(error => {
                 console.log(error)
+                console.log(error.response.status)
+                if(error.response.status == 500){
+                    toastr.error(error.response.data.message, 'Atención!');
+                }
             })
         }
     }

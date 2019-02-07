@@ -79,8 +79,9 @@ class FacturasController extends Controller
         $factura->pedidos()->attach($pedidos);
 
         foreach ($pedidos as $pedido) {
-            $pedido->status = 'pagado';
-            $pedido->update;
+            $ped = Pedido::find($pedido->id);
+            $ped->status = 'pagado';
+            $ped->update;
         }
 
         $cliente->mesas()->detach($mesa_obj);
